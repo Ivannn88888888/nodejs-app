@@ -1,0 +1,26 @@
+version: '3.7'
+networks:
+  default:
+    name: app-network
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./.docker/nginx/Dockerfile
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80
+    networks:
+      - default
+
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: app
+    restart: always
+    environment:
+      - PORT=3000
+    networks:
+      - default
