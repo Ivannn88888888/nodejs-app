@@ -25,7 +25,7 @@ jobs:
 
     - name: Build image
       run: |
-        IMAGE_TAG=${GITHUB_SHA::7}
+        IMAGE_TAG=`echo ${GITHUB_SHA::7}`
         docker-compose build --pull
 
     - name: Push image
