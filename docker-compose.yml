@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: ./.docker/nginx/Dockerfile
-    image: ghcr.io/ivannn88888888/nginx:latest
+    image: ghcr.io/ivannn88888888/nginx:${IMAGE_TAG:-latest}
     container_name: nginx
     restart: always
     ports:
@@ -19,7 +19,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: ghcr.io/ivannn88888888/node-js-app:latest
+    image: ghcr.io/ivannn88888888/node-js-app:${IMAGE_TAG:-latest}
     container_name: app
     restart: always
     environment:
