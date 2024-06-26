@@ -24,7 +24,7 @@ jobs:
       run: echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
     - name: Build image
-      run: docker build . --file Dockerfile
+      run: docker-compose build --pull
 
     - name: Push image
       run: docker-compose push
