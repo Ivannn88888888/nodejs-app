@@ -43,6 +43,9 @@ jobs:
         docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
         docker push $IMAGE_ID:$VERSION
 
+    - name: Run application
+      run: docker-compose up -d
+
     - uses: haishanh/actions-telegram-notification@v1
       if: ${{ always() }}
       with:
